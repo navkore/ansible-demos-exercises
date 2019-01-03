@@ -46,7 +46,7 @@
     - name: Create Application DB User
       mysql_user:
         name: db_user
-        password: PasswOrd
+        password: Passw0rd
         priv: '*.*:ALL'
         state: present
 
