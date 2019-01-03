@@ -35,14 +35,11 @@
         enabled: yes
 
     - name: Create Application Database
-      become: true
-      become_user: osboxes
-      mysql_db: name=employee_db state=present
+      mysql_db: name=employee_db state=present login_user=root
 
     - name: Create Application DB User
       mysql_user:
-        name: db_user
-        password: PasswOrd
+        ls ~
         priv: '*.*:ALL'
         state: present
 
