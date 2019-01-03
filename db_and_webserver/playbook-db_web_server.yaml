@@ -39,7 +39,6 @@
 
     - name: Create Application DB User
       mysql_user:
-        ls ~
         priv: '*.*:ALL'
         state: present
 
