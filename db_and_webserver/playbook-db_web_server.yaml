@@ -39,8 +39,8 @@
 
     - name: Create Application Database
       mysql_db:
-        login_user: osboxes
-        login_password: osboxes.org
+        login_user: root
+        login_password: ''
         name: employee_db
         state: present
 
