@@ -47,6 +47,7 @@
         state: present
 
     - name: Create Application DB User
+      become: true
       mysql_user:
         name: db_user
         password: PasswOrd
