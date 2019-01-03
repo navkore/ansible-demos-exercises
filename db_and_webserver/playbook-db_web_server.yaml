@@ -9,6 +9,7 @@
       - python-dev
       - build-essential
       - python-pip
+      - libmysqlclient-dev
       - git
     packages2:
       - mysql-server
