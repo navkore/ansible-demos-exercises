@@ -21,8 +21,8 @@
         name: "{{ packages1 }}"
 
     - name: Install Python PyMySQL
-        pip:
-          name: PyMySQL
+      pip:
+        name: PyMySQL
 
     - name: Install Mysql database
       become: true
