@@ -33,7 +33,7 @@
         state: present
     - name: Install Python Flask dependencies
       pip:
-        name: {{ items }}
+        name: '{{ items }}'
         with_items:
           - flask
           - flask-mysql
