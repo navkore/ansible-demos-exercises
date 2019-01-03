@@ -1,6 +1,12 @@
 -
-  name: Check connectivity to target servers
-  hosts: all
+  name: Deploy Web Appilocation
+  hosts: target2
   tasks:
-    - name: Ping tests
-      ping:
+    - name: Install dependencies
+    - name: Install Mysql database
+    - name: Start Mysql Service
+    - name: Create Application Database
+    - name: Create Application DB User
+    - name: Install Python Flask dependencies
+    - name: Copy web-server code
+    - name: Run web-server
