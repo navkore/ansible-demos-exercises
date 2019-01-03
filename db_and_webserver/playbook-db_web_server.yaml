@@ -1,7 +1,7 @@
 -
   name: Deploy Web Appilocation
   hosts: target1, target2
-
+  become: true
   vars:
     packages1:
       - python
@@ -18,7 +18,6 @@
 
   tasks:
     - name: Install dependencies
-      become: true
       apt:
         name: "{{ packages1 }}"
 
@@ -27,19 +26,17 @@
           name: MySQL-python
 
     - name: Install Mysql database
-      become: true
       apt:
         name: "{{ packages2 }}"
 
     - name: Start Mysql Service
-#      become: true
       service:
         name: mysql
         state: started
         enabled: yes
 
+    # https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost (option one executed on targets)
     - name: Create Application Database
-#      become: true
       mysql_db:
         login_user: root
         login_password: ""
@@ -47,7 +44,6 @@
         state: present
 
     - name: Create Application DB User
-      become: true
       mysql_user:
         name: db_user
         password: PasswOrd
@@ -61,11 +57,9 @@
           - flask-mysql
 
     - name: Copy web-server code
-      become: true
       git:
         repo: 'https://github.com/mmumshad/simple-webapp.git'
         dest: /opt/
 
     - name: Run web-server
-      become: true
       shell: FLASK_APP=/opt/app.py flask run --host=0.0.0.0
