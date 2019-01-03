@@ -32,6 +32,7 @@
         name: "{{ packages2 }}"
 
     - name: Start Mysql Service
+      become: true
       service:
         name: mysql
         state: started
