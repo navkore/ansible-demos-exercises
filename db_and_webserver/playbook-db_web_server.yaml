@@ -35,7 +35,7 @@
         enabled: yes
 
     - name: Create Application Database
-      mysql_db: name=employee_db state=present login_user=root
+      mysql_db: name=employee_db state=present login_user=root login_password=""
 
     - name: Create Application DB User
       mysql_user:
