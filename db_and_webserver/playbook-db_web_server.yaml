@@ -35,10 +35,12 @@
         enabled: yes
 
     - name: Create Application Database
-      mysql_db: name=employee_db state=present login_user=osboxes login_password=""
+      mysql_db: name=employee_db state=present login_user=db_user login_password=PasswOrd
 
     - name: Create Application DB User
       mysql_user:
+        name: db_user
+        password: PasswOrd
         priv: '*.*:ALL'
         state: present
 
