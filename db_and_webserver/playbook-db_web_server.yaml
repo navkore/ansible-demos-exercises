@@ -62,6 +62,4 @@
         dest: /opt/
 
     - name: Run web-server
-      shell: FLASK_APP=app.py flask run --host=0.0.0.0
-      args:
-        chdir: /opt
+      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0
