@@ -1,7 +1,6 @@
 -
   name: Deploy Web Appilocation
   hosts: target1, target2
-  become: true
   vars:
     packages1:
       - python
