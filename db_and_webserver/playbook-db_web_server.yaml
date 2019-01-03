@@ -9,7 +9,7 @@
       - python-dev
       - build-essential
       - python-pip
-      - python-mysqldb
+      - pymysql
       - git
     packages2:
       - mysql-server
@@ -18,13 +18,11 @@
   tasks:
     - name: Install dependencies
       become: true
-      become_method: sudo
       apt:
         name: "{{ packages1 }}"
 
     - name: Install Mysql database
       become: true
-      become_method: sudo
       apt:
         name: "{{ packages2 }}"
 
