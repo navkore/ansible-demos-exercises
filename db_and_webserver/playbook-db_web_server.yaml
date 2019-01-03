@@ -22,7 +22,7 @@
 
     - name: Install Python PyMySQL
       pip:
-          name: PyMySQL
+          name: MySQL-python
 
     - name: Install Mysql database
       become: true
