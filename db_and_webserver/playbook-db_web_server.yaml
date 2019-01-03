@@ -22,7 +22,7 @@
 
     - name: Install Python PyMySQL
       pip:
-        name: PyMySQL
+          name: PyMySQL
 
     - name: Install Mysql database
       become: true
@@ -37,8 +37,8 @@
 
     - name: Create Application Database
       mysql_db:
-        login_user: osboxes
-        login_password: osboxes.org
+        login_user: root
+        login_password: ""
         name: employee_db
         state: present
 
