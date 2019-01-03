@@ -9,7 +9,6 @@
       - python-dev
       - build-essential
       - python-pip
-      - pymysql
       - git
     packages2:
       - mysql-server
@@ -20,6 +19,11 @@
       become: true
       apt:
         name: "{{ packages1 }}"
+
+    - name: Install Python PyMySQL
+        pip:
+          name:
+            - PyMySQL
 
     - name: Install Mysql database
       become: true
