@@ -16,12 +16,10 @@
 
   tasks:
     - name: Install dependencies
-      become: true
       apt:
         name: "{{ packages1 }}"
 
     - name: Install Mysql database
-      become: true
       apt:
         name: "{{ packages2 }}"
 
