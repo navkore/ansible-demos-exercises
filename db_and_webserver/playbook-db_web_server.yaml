@@ -32,14 +32,14 @@
         name: "{{ packages2 }}"
 
     - name: Start Mysql Service
-      become: true
+#      become: true
       service:
         name: mysql
         state: started
         enabled: yes
 
     - name: Create Application Database
-      become: true
+#      become: true
       mysql_db:
         login_user: root
         login_password: ""
