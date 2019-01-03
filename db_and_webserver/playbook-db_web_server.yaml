@@ -40,8 +40,7 @@
 
     - name: Install Python Flask dependencies
       pip:
-        name: '{{ item }}'
-        loop:
+        name:
           - flask
           - flask-mysql
 
