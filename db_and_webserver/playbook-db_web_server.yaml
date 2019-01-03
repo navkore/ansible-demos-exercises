@@ -61,9 +61,11 @@
           - flask-mysql
 
     - name: Copy web-server code
+      become: true
       git:
         repo: 'https://github.com/mmumshad/simple-webapp.git'
         dest: /opt/
 
     - name: Run web-server
+      become: true
       shell: FLASK_APP=/opt/app.py flask run --host=0.0.0.0
