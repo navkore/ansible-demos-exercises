@@ -1,27 +1,26 @@
 -
   name: Deploy Web Appilocation
   hosts: target1, target2
+  vars:
+    packages1:
+      - python
+      - python-setuptools
+      - python-dev
+      - build-essential
+      - python-pip
+      - python-mysqldb
+      - git
+    packages2:
+      - mysql-server
+      - mysql-client
   tasks:
     - name: Install dependencies
       apt:
-        name: "{{ packages }}"
-        vars:
-          packages:
-            - python
-            - python-setuptools
-            - python-dev
-            - build-essential
-            - python-pip
-            - python-mysqldb
-            - git
+        name: "{{ packages1 }}"
 
     - name: Install Mysql database
       apt:
-        name: "{{ packages }}"
-        vars:
-          packages:
-            - mysql-server
-            - mysql-client
+        name: "{{ packages2 }}"
 
     - name: Start Mysql Service
       service:
