@@ -52,4 +52,4 @@
         dest: /opt/
 
     - name: Run web-server
-      shell: FLASK_APP=/opt/simple-webapp/app.py flask run --host=0.0.0.0
+      shell: FLASK_APP=/opt/app.py flask run --host=0.0.0.0
