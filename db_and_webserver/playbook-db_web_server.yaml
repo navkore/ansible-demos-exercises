@@ -6,7 +6,7 @@
       apt:
         name: '{{ item }}'
         state: installed
-        with_items:
+        loop:
           - python
           - python-setuptools
           - python-dev
@@ -18,7 +18,7 @@
       apt:
         name: '{{ item }}'
         state: installed
-        with_items:
+        loop:
           - mysql-server
           - mysql-client
     - name: Start Mysql Service
@@ -38,7 +38,7 @@
     - name: Install Python Flask dependencies
       pip:
         name: '{{ item }}'
-        with_items:
+        loop:
           - flask
           - flask-mysql
 
