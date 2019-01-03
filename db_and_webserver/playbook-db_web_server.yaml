@@ -1,6 +1,8 @@
 -
   name: Deploy Web Appilocation
   hosts: target1, target2
+  become: true
+  become_method: sudo
   vars:
     packages1:
       - python
