@@ -4,23 +4,25 @@
   tasks:
     - name: Install dependencies
       apt:
-        name: '{{ item }}'
-        state: installed
-        loop:
-          - python
-          - python-setuptools
-          - python-dev
-          - build-essential
-          - python-pip
-          - python-mysqldb
-          - git
+        name: "{{ packages }}"
+        vars:
+          packages:
+            - python
+            - python-setuptools
+            - python-dev
+            - build-essential
+            - python-pip
+            - python-mysqldb
+            - git
+
     - name: Install Mysql database
       apt:
-        name: '{{ item }}'
-        state: installed
-        loop:
-          - mysql-server
-          - mysql-client
+        name: "{{ packages }}"
+        vars:
+          packages:
+            - mysql-server
+            - mysql-client
+
     - name: Start Mysql Service
       service:
         name: mysql
@@ -35,6 +37,7 @@
         password: PasswOrd
         priv: '*.*:ALL'
         state: present
+
     - name: Install Python Flask dependencies
       pip:
         name: '{{ item }}'
