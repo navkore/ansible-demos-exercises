@@ -13,6 +13,7 @@
     packages2:
       - mysql-server
       - mysql-client
+
   tasks:
     - name: Install dependencies
       apt:
