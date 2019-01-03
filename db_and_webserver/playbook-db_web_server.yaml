@@ -4,11 +4,11 @@
   tasks:
     - name: ping
       ping:
-    - name: Install dependencies
-    - name: Install Mysql database
-    - name: Start Mysql Service
-    - name: Create Application Database
-    - name: Create Application DB User
-    - name: Install Python Flask dependencies
-    - name: Copy web-server code
-    - name: Run web-server
+#    - name: Install dependencies
+#    - name: Install Mysql database
+#    - name: Start Mysql Service
+#    - name: Create Application Database
+#    - name: Create Application DB User
+#    - name: Install Python Flask dependencies
+#    - name: Copy web-server code
+#    - name: Run web-server
