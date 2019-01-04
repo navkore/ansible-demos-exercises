@@ -2,64 +2,12 @@
   name: Deploy Web Appilocation
   hosts: target1, target2
   become: true
-  vars:
-    packages1:
-      - python
-      - python-setuptools
-      - python-dev
-      - build-essential
-      - python-pip
-      - libmysqlclient-dev
-      - python-pymysql
-      - git
-    packages2:
-      - mysql-server
-      - mysql-client
 
   tasks:
     - name: Install dependencies
       apt:
         name: "{{ packages1 }}"
 
-    - name: Install Python PyMySQL
-      pip:
-          name: MySQL-python
+    - include: tasks/deploy_db.yml
+    - include: tasks/deploy_web.yml
 
-    - name: Install Mysql database
-      apt:
-        name: "{{ packages2 }}"
-
-    - name: Start Mysql Service
-      service:
-        name: mysql
-        state: started
-        enabled: yes
-
-    # https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost (option one executed on targets)
-    - name: Create Application Database
-      mysql_db:
-        login_user: root
-        login_password: ""
-        name: employee_db
-        state: present
-
-    - name: Create Application DB User
-      mysql_user:
-        name: db_user
-        password: Passw0rd
-        priv: '*.*:ALL'
-        state: present
-
-    - name: Install Python Flask dependencies
-      pip:
-        name:
-          - flask
-          - flask-mysql
-
-    - name: Copy web-server code
-      git:
-        repo: 'https://github.com/mmumshad/simple-webapp.git'
-        dest: /opt/
-
-    - name: Run web-server
-      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
