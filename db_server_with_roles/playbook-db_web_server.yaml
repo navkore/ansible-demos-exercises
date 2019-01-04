@@ -1,0 +1,10 @@
+-
+  name: Deploy Web Appilocation
+  hosts: target1, target2
+  become: true
+  roles:
+    - python
+    - mysql_db
+    - flask_web
+
+

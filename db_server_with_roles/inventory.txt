@@ -1,0 +1,6 @@
+target1 ansible_host=192.168.178.64 ansible_ssh_pass=osboxes.org ansible_sudo_pass=osboxes.org
+target2 ansible_host=192.168.178.65 ansible_ssh_pass=osboxes.org ansible_sudo_pass=osboxes.org
+
+[db_and_webservers]
+target1
+target2
